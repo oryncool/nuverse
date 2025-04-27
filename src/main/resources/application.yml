@@ -84,4 +84,3 @@ jwt:
   access:
     token:
       expiry: 900000
-server
