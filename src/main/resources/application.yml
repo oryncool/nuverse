@@ -68,6 +68,7 @@ upload-images-max-size-mb: 5120
 server:
   servlet:
     context-path: /nuverse
+  port: ${PORT:8080}
 springdoc:
   api-docs:
     path: /v3/api-docs
@@ -83,3 +84,4 @@ jwt:
   access:
     token:
       expiry: 900000
+server
