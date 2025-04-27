@@ -1,0 +1,85 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: nuverse
+  datasource:
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/nuverse}
+    driver-class-name: org.postgresql.Driver
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:oryncool}
+  liquibase:
+    changeLog: db/changelog/liquibase-changelog.yaml
+    enabled: true
+  cloud:
+    kubernetes:
+      discovery:
+        enabled: false
+      enabled: false
+  mvc:
+    async:
+      request-timeout: 1800000
+    pathmatch:
+      matching-strategy: ant_path_matcher
+    cloud:
+      loadbalancer:
+        enabled: true
+      kubernetes:
+        enabled: false
+        config:
+          enabled: false
+      config:
+        enabled: false
+    devtools:
+      livereload:
+        enabled: false
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: deferred
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+    show-sql: false
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 50MB
+      max-request-size: 10MB
+  jackson:
+    mapper:
+      DEFAULT_VIEW_INCLUSION: true
+  web:
+    resources:
+      add-mappings: false
+management:
+  endpoint:
+    restart:
+      enabled: true
+logging_path: /tmp/logs
+base-upload-folder: /tmp/photos
+upload-images-max-size-mb: 5120
+server:
+  servlet:
+    context-path: /nuverse
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+refresh:
+  token:
+    expiry: 604800000
+jwt:
+  secret:
+    key: 1dab58229e92fc812665003582c9c12d448ceb32f5fb23b6a4fc54693f7fdaa1
+  access:
+    token:
+      expiry: 900000

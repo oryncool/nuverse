@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Ablaikhan O
+      changes:
+        - sqlFile:
+            path: 2025-03-03-initial-schema.sql
+            relativeToChangelogFile: true
+  - changeSet:
+      id: 2
+      author: Ablaikhan O
+      changes:
+        - sqlFile:
+            path: 2025-03-10-add-refresh-tokens-table.sql
+            relativeToChangelogFile: true
