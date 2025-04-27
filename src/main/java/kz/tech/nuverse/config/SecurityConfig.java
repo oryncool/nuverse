@@ -39,7 +39,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers(
-                                "/auth/login", "auth/refresh-token",
+                                "/auth/login", "/auth/refresh-token",
                                 "/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html", "/v3/api-docs",
                                 "/api/responses/{requestId}", "/minio/**"
                         ).permitAll()
