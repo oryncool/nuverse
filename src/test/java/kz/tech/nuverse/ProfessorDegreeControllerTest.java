@@ -53,32 +53,29 @@ class ProfessorDegreeControllerTest {
         degree.setId(1L);
         degree.setValueEn("PhD");
 
-        ProfessorDTO professorDTO = ProfessorDTO.builder()
-                .id(professorId)
-                .build();
+        ProfessorDTO professorDTO = new ProfessorDTO();
+        professorDTO.setId(professorId);
 
-        UniversityDTO universityDTO = UniversityDTO.builder()
-                .id(universityId)
-                .name("University Name")
-                .country("Country")
-                .build();
+        UniversityDTO universityDTO = new UniversityDTO();
+        universityDTO.setId(universityId);
+        universityDTO.setName("University Name");
+        universityDTO.setCountry("Country");
 
-        dto = ProfessorDegreeDTO.builder()
-                .id(professorDegreeId)
-                .professor(professorDTO)
-                .university(universityDTO)
-                .degree(degree)
-                .startYear(2010)
-                .endYear(2015)
-                .build();
+        dto = new ProfessorDegreeDTO();
+        dto.setId(professorDegreeId);
+        dto.setProfessor(professorDTO);
+        dto.setUniversity(universityDTO);
+        dto.setDegree(degree);
+        dto.setStartYear(2010);
+        dto.setEndYear(2015);
 
-        createDTO = ProfessorDegreeCreateDTO.builder()
-                .professorId(professorId)
-                .universityId(universityId)
-                .degree(degree)
-                .startYear(2010)
-                .endYear(2015)
-                .build();
+        createDTO = new ProfessorDegreeCreateDTO();
+        createDTO.setProfessorId(professorId);
+        createDTO.setUniversityId(universityId);
+        createDTO.setDegree(degree);
+        createDTO.setStartYear(2010);
+        createDTO.setEndYear(2015);
+
     }
 
     @Test

@@ -45,53 +45,48 @@ class StudentControllerTest {
         mockMvc = MockMvcBuilders.standaloneSetup(studentController).build();
         objectMapper = new ObjectMapper();
 
-        SchoolDTO schoolDTO = SchoolDTO.builder()
-                .id(UUID.randomUUID())
-                .name("Engineering")
-                .build();
+        SchoolDTO schoolDTO = new SchoolDTO();
+        schoolDTO.setId(UUID.randomUUID());
+        schoolDTO.setName("Engineering");
 
-        MajorDTO majorDTO = MajorDTO.builder()
-                .id(UUID.randomUUID())
-                .name("Computer Science")
-                .school(schoolDTO)
-                .build();
+        MajorDTO majorDTO = new MajorDTO();
+        majorDTO.setId(UUID.randomUUID());
+        majorDTO.setName("Computer Science");
+        majorDTO.setSchool(schoolDTO);
 
         BaseDictionaryDTO degree = new BaseDictionaryDTO();
         degree.setId(1L);
         degree.setValueEn("Bachelor");
         degree.setExist(true);
 
-        UserDTO userDTO = UserDTO.builder()
-                .id(UUID.randomUUID())
-                .name("John")
-                .surname("Doe")
-                .lastName("Smith")
-                .birthday(LocalDate.of(2000, 1, 1))
-                .email("john.doe@example.com")
-                .username("johndoe")
-                .role(degree)
-                .build();
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(UUID.randomUUID());
+        userDTO.setName("John");
+        userDTO.setSurname("Doe");
+        userDTO.setLastName("Smith");
+        userDTO.setBirthday(LocalDate.of(2000, 1, 1));
+        userDTO.setEmail("john.doe@example.com");
+        userDTO.setUsername("johndoe");
+        userDTO.setRole(degree);
 
-        studentDTO = StudentDTO.builder()
-                .id(UUID.randomUUID())
-                .user(userDTO)
-                .enrollmentYear(2020)
-                .gpa(3.8)
-                .major(majorDTO)
-                .degree(degree)
-                .build();
+        studentDTO = new StudentDTO();
+        studentDTO.setId(UUID.randomUUID());
+        studentDTO.setUser(userDTO);
+        studentDTO.setEnrollmentYear(2020);
+        studentDTO.setGpa(3.8);
+        studentDTO.setMajor(majorDTO);
+        studentDTO.setDegree(degree);
 
-        studentCreateDTO = StudentCreateDTO.builder()
-                .id(UUID.randomUUID())
-                .userId(userDTO.getId())
-                .enrollmentYear(2020)
-                .gpa(3.8)
-                .major(MajorCreateDTO.builder()
-                        .name("Computer Science")
-                        .schoolId(schoolDTO.getId())
-                        .build())
-                .degree(degree)
-                .build();
+        studentCreateDTO = new StudentCreateDTO();
+        studentCreateDTO.setId(UUID.randomUUID());
+        studentCreateDTO.setUserId(userDTO.getId());
+        studentCreateDTO.setEnrollmentYear(2020);
+        studentCreateDTO.setGpa(3.8);
+        studentCreateDTO.setMajor(new MajorCreateDTO());
+        studentCreateDTO.getMajor().setName("Computer Science");
+        studentCreateDTO.getMajor().setSchoolId(schoolDTO.getId());
+        studentCreateDTO.setDegree(degree);
+
     }
 
     @Test

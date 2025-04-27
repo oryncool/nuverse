@@ -44,21 +44,19 @@ class MajorControllerTest {
         majorId = UUID.randomUUID();
         schoolId = UUID.randomUUID();
 
-        SchoolDTO schoolDTO = SchoolDTO.builder()
-                .id(schoolId)
-                .name("Engineering School")
-                .build();
+        SchoolDTO schoolDTO = new SchoolDTO();
+        schoolDTO.setId(schoolId);
+        schoolDTO.setName("Engineering School");
 
-        majorCreateDTO = MajorCreateDTO.builder()
-                .name("Computer Science")
-                .schoolId(schoolId)
-                .build();
+        majorCreateDTO = new MajorCreateDTO();
+        majorCreateDTO.setName("Computer Science");
+        majorCreateDTO.setSchoolId(schoolId);
 
-        majorDTO = MajorDTO.builder()
-                .id(majorId)
-                .name(majorCreateDTO.getName())
-                .school(schoolDTO)
-                .build();
+        majorDTO = new MajorDTO();
+        majorDTO.setId(majorId);
+        majorDTO.setName(majorCreateDTO.getName());
+        majorDTO.setSchool(schoolDTO);
+
     }
 
     @Test

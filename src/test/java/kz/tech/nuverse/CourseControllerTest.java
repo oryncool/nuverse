@@ -44,21 +44,19 @@ class CourseControllerTest {
         courseId = UUID.randomUUID();
         schoolId = UUID.randomUUID();
 
-        SchoolDTO schoolDTO = SchoolDTO.builder()
-                .id(schoolId)
-                .name("Engineering School")
-                .build();
+        SchoolDTO schoolDTO = new SchoolDTO();
+        schoolDTO.setId(schoolId);
+        schoolDTO.setName("Engineering School");
 
-        courseCreateDTO = CourseCreateDTO.builder()
-                .name("Data Structures")
-                .schoolId(schoolId)
-                .build();
+        courseCreateDTO = new CourseCreateDTO();
+        courseCreateDTO.setName("Data Structures");
+        courseCreateDTO.setSchoolId(schoolId);
 
-        courseDTO = CourseDTO.builder()
-                .id(courseId)
-                .name(courseCreateDTO.getName())
-                .school(schoolDTO)
-                .build();
+        courseDTO = new CourseDTO();
+        courseDTO.setId(courseId);
+        courseDTO.setName(courseCreateDTO.getName());
+        courseDTO.setSchool(schoolDTO);
+
     }
 
     @Test

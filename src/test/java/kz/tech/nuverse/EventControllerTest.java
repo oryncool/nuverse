@@ -51,20 +51,19 @@ class EventControllerTest {
         eventType.setId(1L);
         eventType.setValueEn("Conference");
 
-        eventCreateDTO = EventCreateDTO.builder()
-                .type(eventType)
-                .name("Tech Event")
-                .location("Main Hall")
-                .eventDatetime(LocalDateTime.of(2025, 5, 10, 14, 30))
-                .build();
+        eventCreateDTO = new EventCreateDTO();
+        eventCreateDTO.setType(eventType);
+        eventCreateDTO.setName("Tech Event");
+        eventCreateDTO.setLocation("Main Hall");
+        eventCreateDTO.setEventDatetime(LocalDateTime.of(2025, 5, 10, 14, 30));
 
-        eventDTO = EventDTO.builder()
-                .id(eventId)
-                .type(eventType)
-                .name(eventCreateDTO.getName())
-                .location(eventCreateDTO.getLocation())
-                .eventDatetime(eventCreateDTO.getEventDatetime())
-                .build();
+        eventDTO = new EventDTO();
+        eventDTO.setId(eventId);
+        eventDTO.setType(eventType);
+        eventDTO.setName(eventCreateDTO.getName());
+        eventDTO.setLocation(eventCreateDTO.getLocation());
+        eventDTO.setEventDatetime(eventCreateDTO.getEventDatetime());
+
     }
 
     @Test

@@ -4,6 +4,7 @@ import kz.tech.nuverse.controller.PhonebookController;
 import kz.tech.nuverse.model.dto.PhonebookDTO;
 import kz.tech.nuverse.model.dto.UserDTO;
 import kz.tech.nuverse.model.dto.create.PhonebookCreateDTO;
+import kz.tech.nuverse.model.entity.User;
 import kz.tech.nuverse.service.PhonebookService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -44,22 +45,20 @@ class PhonebookControllerTest {
         phonebookId = UUID.randomUUID();
         userId = UUID.randomUUID();
 
-        UserDTO userDTO = UserDTO.builder()
-                .id(userId)
-                .username("johndoe")
-                .email("johndoe@example.com")
-                .build();
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(userId);
+        userDTO.setUsername("johndoe");
+        userDTO.setEmail("johndoe@example.com");
 
-        phonebookCreateDTO = PhonebookCreateDTO.builder()
-                .userId(userId)
-                .phone("+123456789")
-                .build();
+        phonebookCreateDTO = new PhonebookCreateDTO();
+        phonebookCreateDTO.setUserId(userId);
+        phonebookCreateDTO.setPhone("+123456789");
 
-        phonebookDTO = PhonebookDTO.builder()
-                .id(phonebookId)
-                .user(userDTO)
-                .phone(phonebookCreateDTO.getPhone())
-                .build();
+        phonebookDTO = new PhonebookDTO();
+        phonebookDTO.setId(phonebookId);
+        phonebookDTO.setUser(userDTO);
+        phonebookDTO.setPhone(phonebookCreateDTO.getPhone());
+
     }
 
     @Test

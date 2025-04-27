@@ -37,18 +37,18 @@ class NewsControllerTest {
     void setUp() {
         MockitoAnnotations.openMocks(this);
         mockMvc = MockMvcBuilders.standaloneSetup(newsController).build();
-        newsDTO = NewsDTO.builder()
-                .id(UUID.randomUUID())
-                .type(null)
-                .user(null)
-                .header("Header")
-                .text("Text")
-                .build();
-        newsCreateDTO = NewsCreateDTO.builder()
-                .type(null)
-                .header("Header")
-                .text("Text")
-                .build();
+        newsDTO = new NewsDTO();
+        newsDTO.setId(UUID.randomUUID());
+        newsDTO.setType(null);
+        newsDTO.setUser(null);
+        newsDTO.setHeader("Header");
+        newsDTO.setText("Text");
+
+        newsCreateDTO = new NewsCreateDTO();
+        newsCreateDTO.setType(null);
+        newsCreateDTO.setHeader("Header");
+        newsCreateDTO.setText("Text");
+
     }
 
     @Test

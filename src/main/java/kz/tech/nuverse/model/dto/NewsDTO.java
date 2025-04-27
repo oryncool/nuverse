@@ -8,7 +8,6 @@ import lombok.Data;
 import java.util.UUID;
 
 @Data
-@Builder
 public class NewsDTO {
     private UUID id;
     private BaseDictionaryDTO type;

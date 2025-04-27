@@ -45,27 +45,25 @@ class ProfessorControllerTest {
         professorId = UUID.randomUUID();
         userId = UUID.randomUUID();
 
-        UserDTO userDTO = UserDTO.builder()
-                .id(userId)
-                .username("johndoe")
-                .email("john.doe@example.com")
-                .name("John")
-                .surname("Doe")
-                .lastName("Smith")
-                .build();
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(userId);
+        userDTO.setUsername("johndoe");
+        userDTO.setEmail("john.doe@example.com");
+        userDTO.setName("John");
+        userDTO.setSurname("Doe");
+        userDTO.setLastName("Smith");
 
-        professorDTO = ProfessorDTO.builder()
-                .id(professorId)
-                .user(userDTO)
-                .office("Office 101")
-                .researchInterest("AI")
-                .build();
+        professorDTO = new ProfessorDTO();
+        professorDTO.setId(professorId);
+        professorDTO.setUser(userDTO);
+        professorDTO.setOffice("Office 101");
+        professorDTO.setResearchInterest("AI");
 
-        professorCreateDTO = ProfessorCreateDTO.builder()
-                .userId(userId)
-                .office("Office 101")
-                .researchInterest("AI")
-                .build();
+        professorCreateDTO = new ProfessorCreateDTO();
+        professorCreateDTO.setUserId(userId);
+        professorCreateDTO.setOffice("Office 101");
+        professorCreateDTO.setResearchInterest("AI");
+
     }
 
     @Test

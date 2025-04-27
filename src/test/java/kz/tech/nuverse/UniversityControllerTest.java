@@ -42,17 +42,15 @@ class UniversityControllerTest {
         mockMvc = MockMvcBuilders.standaloneSetup(universityController).build();
         objectMapper = new ObjectMapper();
 
-        universityDTO = UniversityDTO.builder()
-                .id(UUID.randomUUID())
-                .name("Tech University")
-                .country("Kazakhstan")
-                .build();
+        universityDTO = new UniversityDTO();
+        universityDTO.setId(UUID.randomUUID());
+        universityDTO.setName("Tech University");
+        universityDTO.setCountry("Kazakhstan");
 
-        universityCreateDTO = UniversityCreateDTO.builder()
-                .id(UUID.randomUUID())
-                .name("Tech University")
-                .country("Kazakhstan")
-                .build();
+        universityCreateDTO = new UniversityCreateDTO();
+        universityCreateDTO.setId(UUID.randomUUID());
+        universityCreateDTO.setName("Tech University");
+        universityCreateDTO.setCountry("Kazakhstan");
     }
 
     @Test

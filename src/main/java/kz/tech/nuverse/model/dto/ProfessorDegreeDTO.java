@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.UUID;
 
 @Data
-@Builder
+
 public class ProfessorDegreeDTO {
     private UUID id;
     private ProfessorDTO professor;

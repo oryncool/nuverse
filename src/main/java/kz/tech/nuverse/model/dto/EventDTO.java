@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
-@Builder
+
 public class EventDTO {
     private UUID id;
     private BaseDictionaryDTO type;

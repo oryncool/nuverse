@@ -39,15 +39,14 @@ class SchoolControllerTest {
         MockitoAnnotations.openMocks(this);
         mockMvc = MockMvcBuilders.standaloneSetup(schoolController).build();
 
-        schoolDTO = SchoolDTO.builder()
-                .id(UUID.randomUUID())
-                .name("School of Engineering")
-                .build();
+        schoolDTO = new SchoolDTO();
+        schoolDTO.setId(UUID.randomUUID());
+        schoolDTO.setName("School of Engineering");
 
-        schoolCreateDTO = SchoolCreateDTO.builder()
-                .id(UUID.randomUUID())
-                .name("School of Engineering")
-                .build();
+        schoolCreateDTO = new SchoolCreateDTO();
+        schoolCreateDTO.setId(UUID.randomUUID());
+        schoolCreateDTO.setName("School of Engineering");
+
     }
 
     @Test

@@ -51,35 +51,31 @@ class ProfessorAppointmentControllerTest {
         professorAppointmentId = UUID.randomUUID();
         userId = UUID.randomUUID();
 
-        UserDTO userDTO = UserDTO.builder()
-                .id(userId)
-                .username("johndoe")
-                .email("johndoe@example.com")
-                .build();
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(userId);
+        userDTO.setUsername("johndoe");
+        userDTO.setEmail("johndoe@example.com");
 
-        ProfessorDTO professorDTO = ProfessorDTO.builder()
-                .id(professorId)
-                .user(userDTO)
-                .office("office")
-                .researchInterest("interest")
-                .build();
+        ProfessorDTO professorDTO = new ProfessorDTO();
+        professorDTO.setId(professorId);
+        professorDTO.setUser(userDTO);
+        professorDTO.setOffice("office");
+        professorDTO.setResearchInterest("interest");
 
-        AppointmentDTO appointmentDTO = AppointmentDTO.builder()
-                .id(appointmentId)
-                .startTime(java.time.LocalTime.of(10, 0))
-                .endTime(java.time.LocalTime.of(11, 0))
-                .build();
+        AppointmentDTO appointmentDTO = new AppointmentDTO();
+        appointmentDTO.setId(appointmentId);
+        appointmentDTO.setStartTime(java.time.LocalTime.of(10, 0));
+        appointmentDTO.setEndTime(java.time.LocalTime.of(11, 0));
 
-        dto = ProfessorAppointmentDTO.builder()
-                .id(professorAppointmentId)
-                .professor(professorDTO)
-                .appointment(appointmentDTO)
-                .build();
+        dto = new ProfessorAppointmentDTO();
+        dto.setId(professorAppointmentId);
+        dto.setProfessor(professorDTO);
+        dto.setAppointment(appointmentDTO);
 
-        createDTO = ProfessorAppointmentCreateDTO.builder()
-                .professorId(professorId)
-                .appointmentId(appointmentId)
-                .build();
+        createDTO = new ProfessorAppointmentCreateDTO();
+        createDTO.setProfessorId(professorId);
+        createDTO.setAppointmentId(appointmentId);
+
     }
 
     @Test

@@ -51,18 +51,17 @@ class AppointmentControllerTest {
         weekDTO.setId(1L);
         weekDTO.setValueEn("Monday");
         weekDTO.setExist(true);
-        appointmentCreateDTO = AppointmentCreateDTO.builder()
-                .week(weekDTO)
-                .startTime(LocalTime.of(9, 0))
-                .endTime(LocalTime.of(10, 0))
-                .build();
 
-        appointmentDTO = AppointmentDTO.builder()
-                .id(appointmentId)
-                .week(weekDTO)
-                .startTime(appointmentCreateDTO.getStartTime())
-                .endTime(appointmentCreateDTO.getEndTime())
-                .build();
+        appointmentCreateDTO = new AppointmentCreateDTO();
+        appointmentCreateDTO.setWeek(weekDTO);
+        appointmentCreateDTO.setStartTime(appointmentCreateDTO.getStartTime());
+        appointmentCreateDTO.setEndTime(appointmentCreateDTO.getStartTime());
+
+        appointmentDTO = new AppointmentDTO();
+        appointmentDTO.setId(appointmentId);
+        appointmentDTO.setWeek(weekDTO);
+        appointmentDTO.setStartTime(LocalTime.of(9, 0));
+        appointmentDTO.setEndTime(LocalTime.of(10, 0));
     }
 
     @Test

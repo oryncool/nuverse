@@ -51,16 +51,16 @@ class UserControllerTest {
         role.setValueKz("Әкім");
         role.setExist(true);
 
-        userDTO = UserDTO.builder()
-                .id(UUID.randomUUID())
-                .role(role)  // Use the manually instantiated role
-                .name("John")
-                .surname("Doe")
-                .lastName("Smith")
-                .birthday(LocalDate.of(1990, 1, 1))
-                .email("john.doe@example.com")
-                .username("john_doe")
-                .build();
+        userDTO = new UserDTO();
+        userDTO.setId(UUID.randomUUID());
+        userDTO.setRole(role);  // Use the manually instantiated role
+        userDTO.setName("John");
+        userDTO.setSurname("Doe");
+        userDTO.setLastName("Smith");
+        userDTO.setBirthday(LocalDate.of(1990, 1, 1));
+        userDTO.setEmail("john.doe@example.com");
+        userDTO.setUsername("john_doe");
+
     }
 
     @Test

@@ -49,33 +49,29 @@ class StudentCourseControllerTest {
         courseId = UUID.randomUUID();
         studentCourseId = UUID.randomUUID();
 
-        SchoolDTO schoolDTO = SchoolDTO.builder()
-                .id(UUID.randomUUID())
-                .name("School of Engineering")
-                .build();
+        SchoolDTO schoolDTO = new SchoolDTO();
+        schoolDTO.setId(UUID.randomUUID());
+        schoolDTO.setName("School of Engineering");
 
-        CourseDTO courseDTO = CourseDTO.builder()
-                .id(courseId)
-                .name("Computer Science 101")
-                .school(schoolDTO)
-                .build();
+        CourseDTO courseDTO = new CourseDTO();
+        courseDTO.setId(courseId);
+        courseDTO.setName("Computer Science 101");
+        courseDTO.setSchool(schoolDTO);
 
-        StudentDTO studentDTO = StudentDTO.builder()
-                .id(studentId)
-                .enrollmentYear(2021)
-                .gpa(3.75)
-                .build();
+        StudentDTO studentDTO = new StudentDTO();
+        studentDTO.setId(studentId);
+        studentDTO.setEnrollmentYear(2021);
+        studentDTO.setGpa(3.75);
 
-        dto = StudentCourseDTO.builder()
-                .id(studentCourseId)
-                .student(studentDTO)
-                .course(courseDTO)
-                .build();
+        dto = new StudentCourseDTO();
+        dto.setId(studentCourseId);
+        dto.setStudent(studentDTO);
+        dto.setCourse(courseDTO);
 
-        createDTO = StudentCourseCreateDTO.builder()
-                .studentId(studentId)
-                .courseId(courseId)
-                .build();
+        createDTO = new StudentCourseCreateDTO();
+        createDTO.setStudentId(studentId);
+        createDTO.setCourseId(courseId);
+
     }
 
     @Test

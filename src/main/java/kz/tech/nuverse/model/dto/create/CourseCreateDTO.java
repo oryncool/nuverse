@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.UUID;
 
 @Data
-@Builder
+
 public class CourseCreateDTO {
     private String name;
     private UUID schoolId;

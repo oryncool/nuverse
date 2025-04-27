@@ -48,32 +48,29 @@ class ProfessorExperienceControllerTest {
         universityId = UUID.randomUUID();
         professorExperienceId = UUID.randomUUID();
 
-        ProfessorDTO professorDTO = ProfessorDTO.builder()
-                .id(professorId)
-                .build();
+        ProfessorDTO professorDTO = new ProfessorDTO();
+        professorDTO.setId(professorId);
 
-        UniversityDTO universityDTO = UniversityDTO.builder()
-                .id(universityId)
-                .name("University Name")
-                .country("Country")
-                .build();
+        UniversityDTO universityDTO = new UniversityDTO();
+        universityDTO.setId(universityId);
+        universityDTO.setName("University Name");
+        universityDTO.setCountry("Country");
 
-        dto = ProfessorExperienceDTO.builder()
-                .id(professorExperienceId)
-                .professor(professorDTO)
-                .university(universityDTO)
-                .position("Associate Professor")
-                .startYear(2015)
-                .endYear(2020)
-                .build();
+        dto = new ProfessorExperienceDTO();
+        dto.setId(professorExperienceId);
+        dto.setProfessor(professorDTO);
+        dto.setUniversity(universityDTO);
+        dto.setPosition("Associate Professor");
+        dto.setStartYear(2015);
+        dto.setEndYear(2020);
 
-        createDTO = ProfessorExperienceCreateDTO.builder()
-                .professorId(professorId)
-                .universityId(universityId)
-                .position("Associate Professor")
-                .startYear(2015)
-                .endYear(2020)
-                .build();
+        createDTO = new ProfessorExperienceCreateDTO();
+        createDTO.setProfessorId(professorId);
+        createDTO.setUniversityId(universityId);
+        createDTO.setPosition("Associate Professor");
+        createDTO.setStartYear(2015);
+        createDTO.setEndYear(2020);
+
     }
 
     @Test

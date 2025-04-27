@@ -9,7 +9,7 @@ import java.time.LocalTime;
 import java.util.UUID;
 
 @Data
-@Builder
+
 public class AppointmentCreateDTO {
     private BaseDictionaryDTO week;
     private LocalTime startTime;
